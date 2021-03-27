@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final</title>
+    <link rel="stylesheet" href="bootstrap-4.6.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <h2>Quiz</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <form onsubmit="event.preventDefault()">
+            <!-- Question -->
+            <div class="form-group border-bottom">
+              <label for="edtQuestion" class="font-weight-bold">Question</label>
+              <textarea
+                class="form-control"
+                id="edtQuestion"
+                rows="3"
+              ></textarea>
+              <span class="d-none text-danger" id="sp-question-errors">
+                Khong duoc bo trong</span
+              >
+              <div class="form-row mt-2">
+                <div class="form-check form-check-inline">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    name="typeAnswer"
+                    value="0"
+                    id="singleType"
+                    checked
+                  />
+                  <label for="singleType" class="form-check-label"
+                    >Single Choice</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    name="typeAnswer"
+                    value="1"
+                    id="multipleType"
+                  />
+                  <label for="multipleType" class="form-check-label"
+                    >Multiple Choices</label
+                  >
+                </div>
+              </div>
+
+              <div class="text-right">
+                <button
+                  type="submit"
+                  class="btn btn-primary mb-3"
+                  id="createAnswer"
+                >
+                  Create Answer
+                </button>
+              </div>
+            </div>
+            <!-- Answer -->
+            <div class="duck-ans" id="duck-ans">
+              <div class="form-group border-bottom">
+                <div class="d-flex justify-content-between w-100 mb-1">
+                  <label for="annswer" class="font-weight-bold"
+                    >Answer A:</label
+                  >
+                  <a
+                    href="#"
+                    class="border border-dark rounded-circle text-secondary"
+                    ><i class="fas fa-times p-2"></i
+                  ></a>
+                </div>
+                <textarea
+                  name=""
+                  id="annswer"
+                  rows="3"
+                  class="form-control"
+                ></textarea>
+                <div class="form-check mt-2 mb-3">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="CorrectAnswer"
+                  />
+                  <label class="form-check-label" for="CorrectAnswer">
+                    Is Correct Answer
+                  </label>
+                </div>
+              </div>
+              <!-- submit -->
+              <div class="form-row d-flex flex-row-reverse p-2">
+                <button
+                  type="button"
+                  class="btn btn-outline-dark ml-2"
+                  id="btnCancel"
+                  onclick="btnCancelClick()"
+                >
+                  Cancel
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-8">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Type</th>
+                <th scope="col">Content</th>
+                <th scope="col">
+                  <div></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="table-question"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
